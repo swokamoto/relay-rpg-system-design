@@ -39,6 +39,23 @@ Relay RPG is built around a simple principle:
     - Active quests
     - Turn progression state
   - Ensures continuity across sessions and restarts
+```mermaid
+flowchart TD
+
+    U[Discord Users]
+
+    B[Discord Bot<br/>Discord SDK]
+
+    A[Relay RPG Application<br/>Node.js + Express]
+
+    D[(SQLite Database)]
+
+    U -->|Commands| B
+    B -->|Events| A
+
+    A -->|Read / Write| D
+    D -->|State| A
+```
 
 ---
 
@@ -69,6 +86,20 @@ This ensures:
 - no client-side trust
 - deterministic state transitions
 - consistent multi-user behavior
+
+```mermaid
+stateDiagram-v2
+
+    [*] --> CharacterCreated
+
+    CharacterCreated --> JoinedQuest
+    JoinedQuest --> ActiveTurn
+
+    ActiveTurn --> DiceRoll
+    DiceRoll --> StateUpdated
+
+    StateUpdated --> ActiveTurn
+```
 
 ---
 
