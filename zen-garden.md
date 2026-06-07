@@ -1,5 +1,7 @@
 # Zen Garden — System Design Overview
 
+**Project Repository:** https://github.com/swokamoto/zenGarden2
+
 Zen Garden is a server-backed application that allows users to create, modify, and persist custom garden layouts.
 
 The primary challenge is maintaining a consistent representation of user-designed layouts while translating stored state into dynamic visual output.
