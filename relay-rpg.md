@@ -1,5 +1,7 @@
 # Relay RPG — System Design Overview
 
+**Project Repository:** https://github.com/swokamoto/relay-rpg
+
 Relay RPG is an event-driven Discord RPG system where players collaboratively create and progress persistent characters through turn-based storytelling and dice-based mechanics.
 
 The core challenge of the system is managing shared, evolving game state across multiple users and Discord servers while keeping interactions simple and stateless at the interface level.
