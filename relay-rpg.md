@@ -121,6 +121,24 @@ Chosen to keep state local, reliable, and easy to reason about for a single-node
 
 ---
 
+## Concurrency & State Protection
+
+Relay RPG uses application-level locking during turn processing.
+
+When a player submits a turn:
+
+1. Acquire turn lock
+2. Validate player ownership and game state
+3. Resolve game logic
+4. Persist state changes
+5. Release lock
+
+Locks automatically expire after 30 seconds to prevent abandoned state from blocking progression.
+
+This approach protects against duplicate submissions and invalid state transitions while maintaining a simple architecture compatible with SQLite and Node.js.
+
+---
+
 ## Why this project matters
 
 Relay RPG demonstrates:
